@@ -1,0 +1,32 @@
+<div class="modal fade" id="emailModal" tabindex="-1" aria-labelledby="emailModelLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body w-100">
+            
+              <div class="mb-3">
+                <div class="form-group">
+                    <label for="kunde">Möchten Sie diesen Job teilen?</label>
+                    <input
+                    type="text"
+                    class="form-control"
+                    id="email"
+                    required
+                    [(ngModel)]="email"
+                    name="email"
+                    />
+              </div>
+              
+              <div *ngFor="let data of project; let i = index"  style="display: flex">
+                 <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" (click)="sendEmail(data)">Send Email</button>
+                </div>              
+              </div>
+
+             
+            
+        </div>
+        
+      </div>
+    </div>
+  </div>

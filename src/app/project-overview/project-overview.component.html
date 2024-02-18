@@ -1,0 +1,62 @@
+<div class="container mt-5">
+    <div style="display: flex">
+        <input 
+        class="form-control me-2"
+        type="search" 
+        placeholder="Search"
+        aria-label="Search" 
+        [(ngModel)]="searchText">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+    </div><br>
+    
+    <div class="row">
+        <div class="col">
+                   <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Title</th>
+                                <th scope="col">Kunde</th>
+                                <th scope="col">Start</th>
+                                <th scope="col">Ende</th>
+                                <th scope="col">Verlängerung</th>
+                                <th scope="col">Einsatzort</th>
+                                <th scope="col">Prof. Level</th>
+                                <th scope="col">Anzahl</th>
+                                <th scope="col">Ansprechpartner</th>
+                                <th scope="col"></th>
+                                <th scope="col"></th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let data of projects | searchProject: searchText; let i = index">
+                                <td>{{ data.title }}</td>
+                                <td>{{ data.kunde }}</td>
+                                <td>{{ data.start | date: 'shortDate' }}</td>
+                                <td>{{ data.ende | date: 'shortDate' }}</td>
+                                <td>{{ data.extension ? 'ja' : 'nein' }}</td>
+                                <td>{{ data.einsatzort }}</td>
+                                <td>{{ data.level }}</td>
+                                <td>{{ data.anzahl }}</td>
+                                <td>{{ data.ansprechpartner }}</td>
+                                <td class="fw-bold" (click)="selectedProjekt(i)">
+                                    <a class="link-opacity-100" 
+                                       data-bs-toggle="modal" 
+                                       data-bs-target="#exampleModal">view more
+                                    </a>
+                                </td>
+                                <td class="fw-bold" (click)="selectedProjekt(i)">
+                                    <a class="link-opacity-100" 
+                                       data-bs-toggle="modal" 
+                                       data-bs-target="#emailModal">Send Email
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <app-project-details [project]="selProject"></app-project-details>   
+                     <app-project-email [project]="selProject"></app-project-email>
+               
+        </div>
+    </div>
+</div>

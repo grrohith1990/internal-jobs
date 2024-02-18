@@ -1,0 +1,40 @@
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body w-100">
+            <div>
+                <div *ngFor="let data of project; let i = index">
+
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">{{ data.title}}</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                
+                    <div><b>Kunde: </b>{{ data.kunde }}</div>
+                    
+                    <div><b>Start: </b>{{ data.start | date:'shortDate' }}</div>
+                    
+                    <div><b>Ende: </b>{{ data.ende | date:'shortDate' }}</div>
+                    
+                    <div><b>Extension: </b>{{ data.extension ? 'ja' : 'nein' }}</div>
+                    
+                    <div><b>Einsatzort: </b>{{ data.einsatzort }}</div>
+                    
+                    <div><b>Auslastung: </b>{{ data.auslastung }}</div>
+                    
+                    <div><b>Level: </b>{{ data.level }}</div>
+                    
+                    <div><b>Anzahl: </b>{{ data.anzahl }}</div>
+                    
+                    <div><b>Ánsprechpartner: </b>{{ data.ansprechpartner }}</div>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
